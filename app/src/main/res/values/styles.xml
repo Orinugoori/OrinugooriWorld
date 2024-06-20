@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TitleTextView" parent="@android:style/TextAppearance.Medium">
+        <item name="fontFamily">@font/pretendard_extra_bold</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="BoldTextView" parent="@android:style/TextAppearance.Medium">
+        <item name="fontFamily">@font/pretendard_bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="LightTextView" parent="@android:style/TextAppearance.Medium">
+        <item name="fontFamily">@font/pretendard_light</item>
+        <item name="android:textSize">13sp</item>
+        <item name="color">#777777</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="ButtonTextView" parent="@android:style/TextAppearance.Medium">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+
+
+
+
+
+
+
+
+</resources>

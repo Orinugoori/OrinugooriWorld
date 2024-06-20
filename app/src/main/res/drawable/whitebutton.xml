@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="5dp" /> <!-- 둥글기 설정 -->
+            <solid android:color="@color/white" /> <!-- 버튼 색상 설정 -->
+            <stroke
+                android:width="0.3dp"
+                android:color="@color/black"/>
+        </shape>
+
+    </item>
+</layer-list>
