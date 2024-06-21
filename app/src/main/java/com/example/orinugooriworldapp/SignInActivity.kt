@@ -1,16 +1,21 @@
 package com.example.orinugooriworldapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SignInActivity : AppCompatActivity() {
+
+    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,12 +28,8 @@ class SignInActivity : AppCompatActivity() {
         }
 
 
-
         val etvID = findViewById<EditText>(R.id.etv_login_id)
-
-
         val etvPassword = findViewById<EditText>(R.id.etv_login_password)
-
         val btnLogin = findViewById<Button>(R.id.btn_login)
 
         btnLogin.setOnClickListener {
@@ -47,9 +48,19 @@ class SignInActivity : AppCompatActivity() {
         val btnSignUp = findViewById<Button>(R.id.btn_sign_up)
 
         btnSignUp.setOnClickListener {
-            val signUpIntent = Intent(this, SignUpActivity::class.java)
-            startActivity(signUpIntent)
+            val intent = Intent(this, SignUpActivity::class.java)
+            resultLauncher.launch(intent)
         }
+
+        resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val id = result.data?.getStringExtra("UserID") ?: ""
+                    val password = result.data?.getStringExtra("UserPassword") ?: ""
+                    etvID.setText(id)
+                    etvPassword.setText(password)
+                }
+            }
 
 
     }
@@ -63,6 +74,7 @@ class SignInActivity : AppCompatActivity() {
         }
 
     }
+
 
 }
 
