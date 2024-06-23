@@ -45,18 +45,85 @@
 
     </TextView>
 
-
-    <ImageView
-        android:id="@+id/iv_home_character"
+    <FrameLayout
+        android:id="@+id/layout_frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_home_title"
         app:layout_constraintHeight_percent="0.27"
-        android:src="@drawable/iv_home_character"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_title">
+        app:layout_constraintEnd_toEndOf="parent">
 
-    </ImageView>
+        <ImageView
+            android:id="@+id/iv_home_character1"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/iv_home_character_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_title">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/iv_home_character2"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/iv_home_character_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_title">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/iv_home_character3"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/iv_home_character_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_title">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/iv_home_character4"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/iv_home_character_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_title">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/iv_home_character5"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/iv_home_character_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_home_title">
+        </ImageView>
+
+
+    </FrameLayout>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_home_character"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintHeight_percent="0.27"-->
+<!--        android:src="@drawable/iv_home_character"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_home_title">-->
+
+<!--    </ImageView>-->
+
 
     <TextView
         android:id="@+id/tv_name_home"
@@ -67,7 +134,7 @@
         android:layout_marginTop="16dp"
         android:text="이름"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_home_character">
+        app:layout_constraintTop_toBottomOf="@id/layout_frame">
 
     </TextView>
 
