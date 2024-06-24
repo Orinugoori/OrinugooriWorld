@@ -1,6 +1,7 @@
 package com.example.orinugooriworldapp
 
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Im
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -52,26 +53,11 @@ class HomeActivity : AppCompatActivity() {
 
     private fun changeView(index : Int){
 
-        val randomImage1 = findViewById<ImageView>(R.id.iv_home_character1)
-        val randomImage2 = findViewById<ImageView>(R.id.iv_home_character2)
-        val randomImage3 = findViewById<ImageView>(R.id.iv_home_character3)
-        val randomImage4 = findViewById<ImageView>(R.id.iv_home_character4)
-        val randomImage5 = findViewById<ImageView>(R.id.iv_home_character5)
-        val imageList = listOf(randomImage1,randomImage2,randomImage3,randomImage4,randomImage5)
+        val imageView = findViewById<ImageView>(R.id.iv_home_character)
 
-        //index랑 일치하는 index를 가진 imageList만 Visible 나머지는 INVISIBLE로 설정
+        val imageList = listOf(R.drawable.iv_home_character_1,R.drawable.iv_home_character_2,R.drawable.iv_home_character_3,R.drawable.iv_home_character_4,R.drawable.iv_home_character_5)
 
-
-        for(i in imageList.indices){
-            if(i == index){
-                imageList[index].setTransitionVisibility(View.VISIBLE)
-            }else{
-             imageList[i].setTransitionVisibility(View.INVISIBLE)
-            }
-        }
-
-
-
+        imageView.setImageResource(imageList[index])
 
     }
 }
