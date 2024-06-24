@@ -198,19 +198,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_sns" />
 
-    <Button
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btn_sign_up"
-        style="@style/ButtonTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/blackbutton"
-        android:text="회원가입"
-        android:textColor="@color/white"
+        android:background="@drawable/selector_blackbutton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etv_sns" />
+        app:layout_constraintTop_toBottomOf="@id/etv_sns">
+
+
+        <TextView
+            android:id="@+id/btn_text_signup"
+            style="@style/ButtonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="입국심사 완료하기"
+            android:textColor="@drawable/button_pressed_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_icon"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:src="@drawable/button_pressed_icon"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/btn_text_signup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        </ImageView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_sign_up"-->
+<!--        style="@style/ButtonTextView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:background="@drawable/blackbutton"-->
+<!--        android:text="회원가입"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/etv_sns" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

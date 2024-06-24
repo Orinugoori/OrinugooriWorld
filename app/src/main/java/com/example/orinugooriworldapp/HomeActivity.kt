@@ -30,17 +30,17 @@ class HomeActivity : AppCompatActivity() {
         val randomIndex = random.nextInt(5)
         changeView(randomIndex)
 
-        val userInfo = intent.getSerializableExtra("userInfo") as User
+        val userInfo = intent.getParcelableExtra<User>("userInfo")
 
         val displayID = findViewById<TextView>(R.id.tv_id_display)
         val displayName = findViewById<TextView>(R.id.tv_user_name)
         val displayAge = findViewById<TextView>(R.id.tv_user_age)
         val displaySns = findViewById<TextView>(R.id.tv_user_instagram)
 
-        displayID.text = userInfo.id
-        displayName.text =userInfo.name
-        displayAge.text = userInfo.age.toString()
-        displaySns.text =userInfo.sns
+        displayID.text = userInfo?.id ?:""
+        displayName.text =userInfo?.name ?:""
+        displayAge.text = userInfo?.age.toString() ?:""
+        displaySns.text =userInfo?.sns ?:""
 
 
 

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
@@ -33,16 +34,15 @@ class SignInActivity : AppCompatActivity() {
 
         val etvID = findViewById<EditText>(R.id.etv_login_id)
         val etvPassword = findViewById<EditText>(R.id.etv_login_password)
-        val btnLogin = findViewById<Button>(R.id.btn_login)
+        val btnLogin = findViewById<TextView>(R.id.btn_login)
 
 
-
-        val btnSignUp = findViewById<Button>(R.id.btn_sign_up)
+        val btnSignUp = findViewById<TextView>(R.id.btn_sign_up)
 
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
-                    userInfo = result.data?.getSerializableExtra("userInfo") as? User
+                    userInfo = result.data?.getParcelableExtra<User>("userInfo")
 
                     etvID.setText(userInfo?.id ?: "")
                     etvPassword.setText(userInfo?.password ?: "")

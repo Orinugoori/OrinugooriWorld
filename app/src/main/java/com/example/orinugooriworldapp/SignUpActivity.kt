@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.NumberPicker
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -34,7 +37,11 @@ class SignUpActivity : AppCompatActivity() {
         numpick.maxValue = 100
 
         val etvSns = findViewById<EditText>(R.id.etv_sns)
-        val btnSignUp = findViewById<Button>(R.id.btn_sign_up)
+        val btnSignUp = findViewById<ConstraintLayout>(R.id.btn_sign_up)
+
+
+
+
         val validation= IsEmptyInput()
 
         btnSignUp.setOnClickListener {
