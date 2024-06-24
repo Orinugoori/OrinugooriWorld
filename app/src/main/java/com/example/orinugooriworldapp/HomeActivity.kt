@@ -51,49 +51,27 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun changeView(index : Int){
+
         val randomImage1 = findViewById<ImageView>(R.id.iv_home_character1)
         val randomImage2 = findViewById<ImageView>(R.id.iv_home_character2)
         val randomImage3 = findViewById<ImageView>(R.id.iv_home_character3)
         val randomImage4 = findViewById<ImageView>(R.id.iv_home_character4)
         val randomImage5 = findViewById<ImageView>(R.id.iv_home_character5)
+        val imageList = listOf(randomImage1,randomImage2,randomImage3,randomImage4,randomImage5)
 
-        when (index){
-            0 -> {
-                randomImage1.setTransitionVisibility(View.VISIBLE)
-                randomImage2.setTransitionVisibility(View.INVISIBLE)
-                randomImage3.setTransitionVisibility(View.INVISIBLE)
-                randomImage4.setTransitionVisibility(View.INVISIBLE)
-                randomImage5.setTransitionVisibility(View.INVISIBLE)
-            }
-            1 -> {
-                randomImage1.setTransitionVisibility(View.INVISIBLE)
-                randomImage2.setTransitionVisibility(View.VISIBLE)
-                randomImage3.setTransitionVisibility(View.INVISIBLE)
-                randomImage4.setTransitionVisibility(View.INVISIBLE)
-                randomImage5.setTransitionVisibility(View.INVISIBLE)
-            }
-            2 ->{
-                randomImage1.setTransitionVisibility(View.INVISIBLE)
-                randomImage2.setTransitionVisibility(View.INVISIBLE)
-                randomImage3.setTransitionVisibility(View.VISIBLE)
-                randomImage4.setTransitionVisibility(View.INVISIBLE)
-                randomImage5.setTransitionVisibility(View.INVISIBLE)
-            }
-            3 -> {
-                randomImage1.setTransitionVisibility(View.INVISIBLE)
-                randomImage2.setTransitionVisibility(View.INVISIBLE)
-                randomImage3.setTransitionVisibility(View.INVISIBLE)
-                randomImage4.setTransitionVisibility(View.VISIBLE)
-                randomImage5.setTransitionVisibility(View.INVISIBLE)
-            }
-            4 -> {
-                randomImage1.setTransitionVisibility(View.INVISIBLE)
-                randomImage2.setTransitionVisibility(View.INVISIBLE)
-                randomImage3.setTransitionVisibility(View.INVISIBLE)
-                randomImage4.setTransitionVisibility(View.INVISIBLE)
-                randomImage5.setTransitionVisibility(View.VISIBLE)
+        //index랑 일치하는 index를 가진 imageList만 Visible 나머지는 INVISIBLE로 설정
+
+
+        for(i in imageList.indices){
+            if(i == index){
+                imageList[index].setTransitionVisibility(View.VISIBLE)
+            }else{
+             imageList[i].setTransitionVisibility(View.INVISIBLE)
             }
         }
+
+
+
 
     }
 }
