@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.util.Random
+import java.io.Serializable
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,18 +28,22 @@ class HomeActivity : AppCompatActivity() {
 
         val random = Random()
         val randomIndex = random.nextInt(5)
-
         changeView(randomIndex)
 
+        val userInfo = intent.getSerializableExtra("userInfo") as User
+
+        val displayID = findViewById<TextView>(R.id.tv_id_display)
+        val displayName = findViewById<TextView>(R.id.tv_user_name)
+        val displayAge = findViewById<TextView>(R.id.tv_user_age)
+        val displaySns = findViewById<TextView>(R.id.tv_user_instagram)
+
+        displayID.text = userInfo.id
+        displayName.text =userInfo.name
+        displayAge.text = userInfo.age.toString()
+        displaySns.text =userInfo.sns
 
 
-        val userIDData = intent.getStringExtra("UserID")
 
-        Log.d("HomeActivity", "Received User ID: $userIDData")
-
-        val tvDisplayID = findViewById<TextView>(R.id.tv_id_display)
-
-        tvDisplayID.text = userIDData
 
         val btnFinish = findViewById<Button>(R.id.btn_finish)
 

@@ -22,8 +22,8 @@
         android:id="@+id/iv_sign_up_character"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintHeight_percent="0.25"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHeight_percent="0.2"
         android:src="@drawable/iv_signup_character"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="이름"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_sign_up_character" />
@@ -47,8 +47,10 @@
         style="@style/LightTextView"
         android:background="@drawable/edit_text"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.06"
+        android:padding="10dp"
+        android:gravity="center_vertical"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
@@ -75,8 +77,10 @@
         style="@style/LightTextView"
         android:background="@drawable/edit_text"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.06"
+        android:padding="10dp"
+        android:gravity="center_vertical"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
@@ -102,18 +106,97 @@
         android:id="@+id/etv_password"
         style="@style/LightTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.06"
+        android:padding="10dp"
+        android:gravity="center_vertical"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edit_text"
         android:hint="비밀번호를 입력하세요"
         android:inputType="textPassword"
-        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+
+    <TextView
+        android:id="@+id/tv_age"
+        style="@style/BoldTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="나이"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etv_password" />
+
+
+    <!--    <EditText-->
+<!--        android:id="@+id/etv_age"-->
+<!--        style="@style/LightTextView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintHeight_percent="0.06"-->
+<!--        android:padding="10dp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:background="@drawable/edit_text"-->
+<!--        android:hint="오리너구리의 나이를 입력하세요"-->
+<!--        android:inputType="number"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_age" />-->
+
+    <NumberPicker
+        android:id="@id/numpick_age"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_age">
+
+    </NumberPicker>
+
+    <TextView
+        android:id="@+id/tv_sns"
+        style="@style/BoldTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="SNS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numpick_age" />
+
+
+    <EditText
+        android:id="@+id/etv_sns"
+        style="@style/LightTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.06"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text"
+        android:hint="인스타그램 아이디를 입력하세요"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sns" />
 
     <Button
         android:id="@+id/btn_sign_up"
@@ -121,13 +204,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/blackbutton"
         android:text="회원가입"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etv_password" />
+        app:layout_constraintTop_toBottomOf="@+id/etv_sns" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

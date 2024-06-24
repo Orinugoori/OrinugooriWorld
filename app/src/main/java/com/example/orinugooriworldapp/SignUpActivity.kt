@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class SignUpActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,22 +23,29 @@ class SignUpActivity : AppCompatActivity() {
             insets
         }
 
+
         val etvSignUpName = findViewById<EditText>(R.id.etv_name)
+        val etvSignupID = findViewById<EditText>(R.id.etv_id)
+        val etvSignUpPassword = findViewById<EditText>(R.id.etv_password)
 
+        val numpick = findViewById<NumberPicker>(R.id.numpick_age)
 
+        numpick.minValue = 0
+        numpick.maxValue = 100
+
+        val etvSns = findViewById<EditText>(R.id.etv_sns)
         val btnSignUp = findViewById<Button>(R.id.btn_sign_up)
         val validation= IsEmptyInput()
 
         btnSignUp.setOnClickListener {
-            val etvSignupID = findViewById<EditText>(R.id.etv_id)
-            val etvSignUpPassword = findViewById<EditText>(R.id.etv_password)
 
-        if(validation.isEmptyInput(etvSignupID)||validation.isEmptyInput(etvSignUpName)||validation.isEmptyInput(etvSignUpPassword)){
+        if(validation.isEmptyInput(etvSignupID)||validation.isEmptyInput(etvSignUpName)||validation.isEmptyInput(etvSignUpPassword)||validation.isEmptyInput(etvSns)){
             Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
         }else{
-            val intent = Intent(this, SignInActivity::class.java)
-            intent.putExtra("UserID",etvSignupID.text.toString())
-            intent.putExtra("UserPassword",etvSignUpPassword.text.toString())
+            val userInfo = User(etvSignUpName.text.toString(),etvSignupID.text.toString(),etvSignUpPassword.text.toString(),numpick.value,etvSns.text.toString())
+
+            val intent = Intent()
+            intent.putExtra("userInfo" , userInfo)
             setResult(RESULT_OK,intent)
             finish()
         }

@@ -12,10 +12,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.io.Serializable
 
 class SignInActivity : AppCompatActivity() {
 
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    private var userInfo: User? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -32,35 +35,45 @@ class SignInActivity : AppCompatActivity() {
         val etvPassword = findViewById<EditText>(R.id.etv_login_password)
         val btnLogin = findViewById<Button>(R.id.btn_login)
 
-        btnLogin.setOnClickListener {
-            if (isEmptyInput(etvID) || isEmptyInput(etvPassword)) {
-                Toast.makeText(this, "아이디,비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
 
-                val userIDStr = etvID.text.toString()
-                val intent = Intent(this, HomeActivity::class.java)
-                intent.putExtra("UserID", userIDStr)
-                startActivity(intent)
-            }
-        }
 
         val btnSignUp = findViewById<Button>(R.id.btn_sign_up)
+
+        resultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    userInfo = result.data?.getSerializableExtra("userInfo") as? User
+
+                    etvID.setText(userInfo?.id ?: "")
+                    etvPassword.setText(userInfo?.password ?: "")
+
+                }
+            }
 
         btnSignUp.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             resultLauncher.launch(intent)
         }
 
-        resultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    val id = result.data?.getStringExtra("UserID") ?: ""
-                    val password = result.data?.getStringExtra("UserPassword") ?: ""
-                    etvID.setText(id)
-                    etvPassword.setText(password)
-                }
+
+        btnLogin.setOnClickListener {
+            if (isEmptyInput(etvID) || isEmptyInput(etvPassword)) {
+                Toast.makeText(this, "아이디,비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra("userInfo",userInfo)
+                startActivity(intent)
+
             }
+        }
+
+
+
+
+
+
 
 
     }
