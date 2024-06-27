@@ -25,39 +25,39 @@ class SignUpActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
         val etvSignUpName = findViewById<EditText>(R.id.etv_name)
         val etvSignupID = findViewById<EditText>(R.id.etv_id)
         val etvSignUpPassword = findViewById<EditText>(R.id.etv_password)
 
         val numpick = findViewById<NumberPicker>(R.id.numpick_age)
-
         numpick.minValue = 0
         numpick.maxValue = 100
 
         val etvSns = findViewById<EditText>(R.id.etv_sns)
         val btnSignUp = findViewById<ConstraintLayout>(R.id.btn_sign_up)
-
-
-
-
-        val validation= IsEmptyInput()
+        val validation = IsEmptyInput()
 
         btnSignUp.setOnClickListener {
 
-        if(validation.isEmptyInput(etvSignupID)||validation.isEmptyInput(etvSignUpName)||validation.isEmptyInput(etvSignUpPassword)||validation.isEmptyInput(etvSns)){
-            Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
-        }else{
-            val userInfo = User(etvSignUpName.text.toString(),etvSignupID.text.toString(),etvSignUpPassword.text.toString(),numpick.value,etvSns.text.toString())
+            if (validation.isEmptyInput(etvSignupID) || validation.isEmptyInput(etvSignUpName) || validation.isEmptyInput(
+                    etvSignUpPassword
+                ) || validation.isEmptyInput(etvSns)
+            ) {
+                Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                val userInfo = User(
+                    etvSignUpName.text.toString(),
+                    etvSignupID.text.toString(),
+                    etvSignUpPassword.text.toString(),
+                    numpick.value,
+                    etvSns.text.toString()
+                )
 
-            val intent = Intent()
-            intent.putExtra("userInfo" , userInfo)
-            setResult(RESULT_OK,intent)
-            finish()
+                val intent = Intent()
+                intent.putExtra("userInfo", userInfo)
+                setResult(RESULT_OK, intent)
+                finish()
+            }
         }
-
-        }
-
     }
 }
